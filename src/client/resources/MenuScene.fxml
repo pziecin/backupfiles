@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="640.0" minWidth="1024.0" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controller.MenuController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#addNewFile" text="Dodaj nowy plik" />
+              <MenuItem mnemonicParsing="false" onAction="#closeProgram" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#setSynchronizedTime" text="Ustaw czas synchronizacji" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#aboutInfo" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="735.0" prefWidth="121.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addNewFile" prefHeight="100.0" prefWidth="100.0" text="Dodaj nowy plik" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#deleteFileToSend" prefHeight="100.0" prefWidth="100.0" text="Usuń plik" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#receiveFilesInfo" prefHeight="100.0" prefWidth="100.0" text="Pokaż pliki na serwerze" textAlignment="CENTER" wrapText="true">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" spacing="40.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" fillWidth="false" spacing="20.0">
+               <children>
+                  <Label text="Pliki do wysłania">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="listviewclient" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="500.0" minWidth="300.0" prefHeight="500.0" prefWidth="335.0" />
+                  <ProgressBar fx:id="pbc" prefHeight="18.0" prefWidth="300.0" progress="0.0" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="615.0" prefWidth="104.0" spacing="100.0">
+               <children>
+                  <CheckBox fx:id="checkboxsynchro" mnemonicParsing="false" onAction="#synchronizedClientAndServer" prefHeight="46.0" prefWidth="104.0" text="Automatyczna synchronizacja" wrapText="true" />
+                  <Button mnemonicParsing="false" onAction="#sendFiles" prefHeight="60.0" prefWidth="60.0" text="Send &gt;&gt;" textAlignment="CENTER" wrapText="true" />
+                  <Button mnemonicParsing="false" onAction="#receiveFiles" prefHeight="60.0" prefWidth="60.0" text="Receive &lt;&lt;" textAlignment="CENTER" wrapText="true" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+            <VBox alignment="CENTER" fillWidth="false" spacing="20.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="158.0" text="Pliki na serwerze" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="listviewserver" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="500.0" minWidth="335.0" />
+                  <ProgressBar fx:id="pbs" prefHeight="18.0" prefWidth="300.0" progress="0.0" />
+               </children>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </center>
+</BorderPane>
